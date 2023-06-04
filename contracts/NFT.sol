@@ -6,21 +6,18 @@ pragma solidity ^0.8.13;
 
 import {ERC721} from "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import {ERC721Enumerable} from "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
-import {Counters} from "lib/openzeppelin-contracts/contracts/utils/Counters.sol";
 import {Strings} from "lib/openzeppelin-contracts/contracts/utils/Strings.sol";
 import {Base64} from "lib/openzeppelin-contracts/contracts/utils/Base64.sol";
 
 error InvalidArguments();
 
 contract NFT is ERC721, ERC721Enumerable {
-    using Counters for Counters.Counter;
-
     //
     // State
     //
 
     /// keeps track of the next item's ID
-    Counters.Counter counter;
+    uint256 public currentId;
 
     /// Base URI for each item's image URI
     string baseImageURI;
@@ -42,10 +39,6 @@ contract NFT is ERC721, ERC721Enumerable {
     //
     // Public API
     //
-    function getCurrentId() public view returns (uint256 currentId) {
-        return counter.current();
-    }
-
     function listTokensByAddress(address tokensOwner) public view returns (uint256[] memory) {
         uint256 totalAmount = balanceOf(tokensOwner);
         uint256[] memory totalTokens = new uint256[](totalAmount);
@@ -56,8 +49,8 @@ contract NFT is ERC721, ERC721Enumerable {
     }
 
     function mint(address to) public {
-        counter.increment();
-        uint256 newTokenId = counter.current();
+        currentId += 1;
+        uint256 newTokenId = currentId;
         _safeMint(to, newTokenId);
     }
 

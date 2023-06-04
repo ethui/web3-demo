@@ -81,4 +81,5 @@ forge-script script:
     --fork-url http://localhost:8545 \
     --broadcast \
     --mnemonics "{{ mnemonic }}" \
-    --sender "{{ sender }}"
+    --sender "{{ sender }}" \
+    --json

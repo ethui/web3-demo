@@ -17,12 +17,17 @@ contract BaseSetup is Test {
         vm.deal(userAdd, 10 ether);
         nft.mint(userAdd);
         assertEq(nft.balanceOf(userAdd), 1);
-        uint256 tokenId1 = nft.getCurrentId();
+        uint256 tokenId1 = nft.currentId();
+        assertEq(tokenId1, 1);
+
         nft.mint(userAdd);
         assertEq(nft.balanceOf(userAdd), 2);
-        uint256 tokenId2 = nft.getCurrentId();
+        uint256 tokenId2 = nft.currentId();
+        assertEq(tokenId2, 2);
+
         nft.mint(userAdd);
         assertEq(nft.balanceOf(userAdd), 3);
-        uint256 tokenId3 = nft.getCurrentId();
+        uint256 tokenId3 = nft.currentId();
+        assertEq(tokenId3, 3);
     }
 }
