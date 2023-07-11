@@ -19,6 +19,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "NFT", href: "/nft" },
   { name: "Token", href: "/token" },
+  { name: "Signatures", href: "/signatures" },
 ];
 
 const menuItems = (color: string, onClick: () => void) =>
