@@ -1,12 +1,12 @@
 "use client";
 
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { foundry } from "@wagmi/core/chains";
+import { foundry, mainnet } from "@wagmi/core/chains";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, publicClient } = configureChains(
-  [foundry],
+  [foundry, mainnet],
   [publicProvider()],
   { pollingInterval: 500 }
 );

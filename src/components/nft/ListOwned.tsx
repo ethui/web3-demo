@@ -44,7 +44,7 @@ export function ListOwned() {
     <Grid container>
       {metadatas?.map(({ image }) => (
         <Grid item key={image}>
-          <img src={image} srcSet={image} width={50} />
+          <img src={image} srcSet={image} width={100} />
         </Grid>
       ))}
     </Grid>
