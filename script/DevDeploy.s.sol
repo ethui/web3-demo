@@ -11,15 +11,19 @@ contract DevDeployScript is Script {
     address bob = address(0x70997970C51812dc3A010C7d01b50e0d17dc79C8);
     address carol = address(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266);
     address dave = address(0x90F79bf6EB2c4f870365E785982E1f101E93b906);
+    address ledger = address(0x4b7f6bfD248f541eB5474f591D54Bc29444946db);
+    address metamaskTest = address(0x0077014b4C74d9b1688847386B24Ed23Fdf14Be8);
 
     address[] testAccounts;
 
     function setUp() public {
-        testAccounts = new address[](4);
+        testAccounts = new address[](6);
         testAccounts[0] = alice;
         testAccounts[1] = bob;
         testAccounts[2] = carol;
         testAccounts[3] = dave;
+        testAccounts[4] = ledger;
+        testAccounts[5] = metamaskTest;
     }
 
     function run() public {

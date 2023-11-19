@@ -47,7 +47,7 @@ eth:
   just test
   sleep 1 && just eth-deploy &
   just wagmi &
-  anvil --host 0.0.0.0 --silent
+  anvil --host 0.0.0.0
 
 build-contracts:
   forge build

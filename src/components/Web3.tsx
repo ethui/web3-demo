@@ -2,7 +2,11 @@
 
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { foundry } from "@wagmi/core/chains";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import {
+  connectorsForWallets,
+  RainbowKitProvider,
+} from "@rainbow-me/rainbowkit";
+import { injectedWallet } from "@rainbow-me/rainbowkit/wallets";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, publicClient } = configureChains(
@@ -11,11 +15,9 @@ const { chains, publicClient } = configureChains(
   { pollingInterval: 500 }
 );
 
-const { connectors } = getDefaultWallets({
-  appName: "Iron Demo",
-  projectId: "iron-demo",
-  chains,
-});
+const connectors = connectorsForWallets([
+  { groupName: "Recommended", wallets: [injectedWallet({ chains })] },
+]);
 
 const wagmi = createConfig({
   autoConnect: true,

@@ -14,6 +14,7 @@ export function Mint() {
   const wait = useWaitForTransaction({
     hash: write.data?.hash,
   });
+  console.log(config, write, wait);
 
   const isLoading = wait.isLoading || write.isLoading;
 
