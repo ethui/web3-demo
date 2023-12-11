@@ -3,6 +3,7 @@ import { Container } from "@mui/material";
 import "@rainbow-me/rainbowkit/styles.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
@@ -19,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <main>
           <Web3>
             <Navbar />
-            <Container sx={{ py: 2 }}>
+            <Container sx={{ py: 0, px: 0 }}>
               <Component {...pageProps} />
             </Container>
           </Web3>

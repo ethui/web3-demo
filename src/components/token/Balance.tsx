@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 
-export default function Balancee() {
+export function Balance() {
   const { address } = useAccount();
   const { data: balance, refetch } = useTokenBalanceOf({
     args: address && [address ?? "0x0"],

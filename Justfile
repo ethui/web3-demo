@@ -45,7 +45,7 @@ eth:
   killall -9 anvil
   just build-contracts
   just test
-  sleep 1 && just eth-deploy &
+  sleep 0.2 && just eth-deploy &
   just wagmi &
   anvil --host 0.0.0.0
 

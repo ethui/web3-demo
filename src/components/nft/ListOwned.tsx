@@ -27,8 +27,9 @@ export function ListOwned() {
 
   useEffect(() => {
     if (!uris) return;
+    if (uris[0]?.error) return;
 
-    const metadatas = (uris as { result: string }[]).map(({ result }) =>
+    const metadatas = (uris as Array<{ result: string }>).map(({ result }) =>
       decodeMetadata(result)
     );
     setMetadatas(metadatas);
@@ -56,7 +57,10 @@ export interface Metadata {
 }
 
 export function decodeMetadata(encoded: string): Metadata {
-  return JSON.parse(
-    window.atob(encoded.replace("data:application/json;base64,", ""))
+  return (
+    encoded &&
+    JSON.parse(
+      window.atob(encoded.replace("data:application/json;base64,", ""))
+    )
   );
 }

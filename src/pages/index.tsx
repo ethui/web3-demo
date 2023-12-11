@@ -1,20 +1,16 @@
-import { Button, Stack } from "@mui/material";
-import Link from "next/link";
+"use client";
+
+import Items from "@/components/items";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  return (
-    <Stack direction="row" spacing={2}>
-      <Button variant="contained" color="primary">
-        <Link href="/nft" style={{ textDecoration: "none", color: "white" }}>
-          NFT
-        </Link>
-      </Button>
+  const [isSSR, setIsSSR] = useState(true);
 
-      <Button variant="contained" color="primary">
-        <Link href="/token" style={{ textDecoration: "none", color: "white" }}>
-          Token
-        </Link>
-      </Button>
-    </Stack>
-  );
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
+  if (isSSR) return null;
+
+  return <Items />;
 }
