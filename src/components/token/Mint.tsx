@@ -13,7 +13,10 @@ export function Mint() {
       variant="contained"
       disabled={!isIdle}
       onClick={() => {
-        writeContract({ args: [address] });
+        writeContract({
+          functionName: "mint", // https://github.com/wevm/wagmi/issues/3613
+          args: [address],
+        });
       }}
     >
       {isIdle ? "Mint $TEST" : "Minting..."}
