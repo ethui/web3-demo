@@ -5,6 +5,7 @@ import {Script} from "lib/forge-std/src/Script.sol";
 
 import {NFT} from "contracts/NFT.sol";
 import {Token} from "contracts/Token.sol";
+import {TestCalls} from "contracts/TestCalls.sol";
 
 contract DevDeployScript is Script {
     address alice = address(0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266);
@@ -32,6 +33,7 @@ contract DevDeployScript is Script {
         vm.startBroadcast();
         NFT nft = new NFT("https://assets.pokemon.com/assets/cms2/img/pokedex/detail/");
         Token token = new Token();
+        TestCalls testCalls = new TestCalls();
 
         for (uint256 i = 0; i < testAccounts.length; i++) {
             address addr = testAccounts[i];
