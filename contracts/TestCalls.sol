@@ -15,10 +15,11 @@ contract TestCalls {
 
     uint256[] public uintArray;
 
-    // works
+    function call_empty() external {}
     function call_uint(uint256 v) external {}
 
-    // works
+    function pay(uint256 v) external payable {}
+
     function call_string(string calldata v) external {}
 
     function call_bytes32(bytes32 v) external {}
@@ -37,10 +38,15 @@ contract TestCalls {
     function call_uintArraySpecificLength(uint256[2] calldata v) external {}
 
     function length_uintArry() external view returns (uint256) {
-        return uintArray.length;
+        return 10;
     }
 
     function call_stringArray(string[] calldata v) external {}
     function call_bytes32Array(bytes[] calldata v) external {}
     function call_bytesArray(bytes32[] calldata v) external {}
+
+    function buy(uint256 _amount, string[] calldata _proof) external {}
+    function two(uint256 x, uint256 y) external {}
+
+    fallback() external {}
 }
