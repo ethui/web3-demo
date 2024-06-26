@@ -24,7 +24,7 @@ An opinionated starter for Web3 projects -- and a testing ground for [Iron Walle
 - Node.js
 - Foundry
 - [`watchexec`](https://github.com/watchexec/watchexec)
-- [`just`](https://github.com/casey/just)
+- [`mise`](https://mise.jdx.dev/)
 
 2. Clone this repo:
 
@@ -37,7 +37,7 @@ yarn install
 3. Start the servers:
 
 ```sh
-just dev
+mise run
 ```
 
 ## The full stack

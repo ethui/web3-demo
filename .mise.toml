@@ -17,6 +17,9 @@ run = ["mise run forge-script script/DevDeploy.s.sol"]
 [tasks.forge-script]
 run = 'forge script $1 --fork-url http://localhost:8545 --broadcast --mnemonics "$MNEMONIC" --sender "$SENDER" --json'
 
+[tools]
+node = "20"
+
 [env]
 MNEMONIC = "test test test test test test test test test test test junk"
 SENDER = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266"
