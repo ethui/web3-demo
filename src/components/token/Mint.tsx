@@ -1,10 +1,10 @@
-import { useWriteNftMint } from "@/wagmi.generated";
+import { useWriteTokenMint } from "@/wagmi.generated";
 import { Button } from "@mui/material";
 import { useAccount } from "wagmi";
 
 export function Mint() {
   const { address } = useAccount();
-  const { writeContract, isIdle } = useWriteNftMint();
+  const { writeContract, isIdle } = useWriteTokenMint();
 
   if (!address) return null;
 
@@ -15,7 +15,7 @@ export function Mint() {
       onClick={() => {
         writeContract({
           functionName: "mint", // https://github.com/wevm/wagmi/issues/3613
-          args: [address],
+          args: [address, BigInt(1e18)],
         });
       }}
     >

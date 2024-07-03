@@ -15,7 +15,7 @@ export default function Items() {
       </div>
       <hr />
       <div>
-        <h1>Mint NFT</h1>
+        <h1>Mint TEST</h1>
         <ERC20.Mint />
         <ERC20.Balance />
       </div>
