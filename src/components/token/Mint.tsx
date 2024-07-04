@@ -4,14 +4,14 @@ import { useAccount } from "wagmi";
 
 export function Mint() {
   const { address } = useAccount();
-  const { writeContract, isIdle } = useWriteTokenMint();
+  const { isPending, writeContract } = useWriteTokenMint();
 
   if (!address) return null;
 
   return (
     <Button
       variant="contained"
-      disabled={!isIdle}
+      disabled={isPending}
       onClick={() => {
         writeContract({
           functionName: "mint", // https://github.com/wevm/wagmi/issues/3613
@@ -19,7 +19,7 @@ export function Mint() {
         });
       }}
     >
-      {isIdle ? "Mint $TEST" : "Minting..."}
+      {isPending ? "Minting..." : "Mint $TEST"}
     </Button>
   );
 }

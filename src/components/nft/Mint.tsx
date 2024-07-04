@@ -4,7 +4,7 @@ import { useAccount } from "wagmi";
 
 export function Mint() {
   const { address } = useAccount();
-  const { writeContract, isIdle, ...args } = useWriteNftMint();
+  const { writeContract, isPending, ...args } = useWriteNftMint();
   console.log(args);
   console.log(address);
 
@@ -13,7 +13,7 @@ export function Mint() {
   return (
     <Button
       variant="contained"
-      disabled={!isIdle}
+      disabled={isPending}
       onClick={() => {
         console.log(address);
         writeContract({
@@ -22,7 +22,7 @@ export function Mint() {
         });
       }}
     >
-      {isIdle ? "Mint NFT" : "Minting..."}
+      {isPending ? "Minting..." : "Mint NFT"}
     </Button>
   );
 }
