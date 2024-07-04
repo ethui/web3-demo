@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <Theme>
       <QueryClientProvider client={queryClient}>
         <Head>
-          <title>Iron Demo</title>
+          <title>ehtui Demo</title>
           <meta name="description" content="A web3 demo app" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
