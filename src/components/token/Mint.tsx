@@ -1,25 +1,25 @@
-import { useWriteNftMint } from "@/wagmi.generated";
+import { useWriteTokenMint } from "@/wagmi.generated";
 import { Button } from "@mui/material";
 import { useAccount } from "wagmi";
 
 export function Mint() {
   const { address } = useAccount();
-  const { writeContract, isIdle } = useWriteNftMint();
+  const { isPending, writeContract } = useWriteTokenMint();
 
   if (!address) return null;
 
   return (
     <Button
       variant="contained"
-      disabled={!isIdle}
+      disabled={isPending}
       onClick={() => {
         writeContract({
           functionName: "mint", // https://github.com/wevm/wagmi/issues/3613
-          args: [address],
+          args: [address, BigInt(1e18)],
         });
       }}
     >
-      {isIdle ? "Mint $TEST" : "Minting..."}
+      {isPending ? "Minting..." : "Mint $TEST"}
     </Button>
   );
 }
