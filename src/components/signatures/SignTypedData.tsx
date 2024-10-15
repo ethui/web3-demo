@@ -27,19 +27,15 @@ export function SignTypedData() {
     contents,
   } as const;
 
-  const { data, signTypedData } = useSignTypedData({
-    domain,
-    primaryType: "Mail",
-    types,
-    message,
-  });
+  const { data, signTypedData } = useSignTypedData(
+  );
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
         console.log("her");
-        signTypedData();
+        signTypedData({ domain, primaryType: "Mail", types, message });
       }}
     >
       <Typography variant="h2">Sign EIP712 Typed Data</Typography>

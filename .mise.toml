@@ -1,6 +1,6 @@
 [tasks.default]
 alias = "d"
-depends = ["anvil", "web", "eth-watch"]
+run = "mprocs"
 
 [tasks.web]
 run = "yarn dev"

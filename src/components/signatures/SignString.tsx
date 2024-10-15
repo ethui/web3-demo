@@ -10,15 +10,13 @@ import { useSignMessage } from "wagmi";
 
 export function SignString() {
   const [message, setMessage] = useState("");
-  const { data, signMessage } = useSignMessage({
-    message,
-  });
+  const { data, signMessage } = useSignMessage();
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        signMessage();
+        signMessage({ message });
       }}
     >
       <Typography variant="h2">Sign String</Typography>
