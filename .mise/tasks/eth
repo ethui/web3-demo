@@ -3,4 +3,4 @@
 forge build
 forge test
 sleep 0.2 && mise run eth-deploy &
-just wagmi &
+yarn run wagmi generate &
